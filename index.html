@@ -1,1 +1,540 @@
-"Hello World!"
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="White Blaze Analytics is an IT consulting company helping organizations navigate data, cloud, automation, and technology strategy." />
+  <title>White Blaze Analytics LLC | Navigate Your Path Less Traveled</title>
+  <meta property="og:title" content="White Blaze Analytics LLC" />
+  <meta property="og:description" content="IT consulting to help you navigate your path less traveled." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/appalachian-trail.jpg" />
+  <style>
+    :root {
+      --forest: #183526;
+      --forest-2: #0e2419;
+      --moss: #5e7d45;
+      --trail: #d9c7a3;
+      --stone: #f5f1e8;
+      --white: #ffffff;
+      --ink: #18221c;
+      --muted: #657268;
+      --gold: #d5a84e;
+      --shadow: 0 28px 80px rgba(8, 22, 15, 0.24);
+      --radius: 28px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background: var(--stone);
+      line-height: 1.55;
+    }
+
+    a { color: inherit; }
+
+    .site-header {
+      position: fixed;
+      inset: 0 0 auto 0;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 18px clamp(20px, 5vw, 72px);
+      color: var(--white);
+      background: linear-gradient(180deg, rgba(14, 36, 25, 0.84), rgba(14, 36, 25, 0.18), transparent);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-weight: 800;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+      text-decoration: none;
+    }
+
+    .mark {
+      width: 34px;
+      height: 46px;
+      border: 2px solid rgba(255,255,255,.76);
+      border-radius: 7px;
+      background: rgba(255,255,255,.94);
+      box-shadow: 0 10px 30px rgba(0,0,0,.22);
+      position: relative;
+      flex: 0 0 auto;
+    }
+
+    .mark::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      width: 12px;
+      height: 12px;
+      transform: translate(-50%, -50%) rotate(45deg);
+      border-right: 2px solid var(--forest);
+      border-bottom: 2px solid var(--forest);
+    }
+
+    .nav {
+      display: flex;
+      gap: 18px;
+      font-size: 14px;
+      color: rgba(255,255,255,.88);
+    }
+
+    .nav a {
+      text-decoration: none;
+      border-bottom: 1px solid transparent;
+    }
+
+    .nav a:hover { border-color: rgba(255,255,255,.7); }
+
+    .hero {
+      min-height: 100vh;
+      position: relative;
+      display: grid;
+      align-items: end;
+      padding: 116px clamp(20px, 5vw, 72px) 70px;
+      color: var(--white);
+      overflow: hidden;
+      isolation: isolate;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -2;
+      background-image: url("assets/appalachian-trail.jpg");
+      background-size: cover;
+      background-position: center;
+      transform: scale(1.02);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background:
+        radial-gradient(circle at 72% 34%, rgba(255,255,255,.08), transparent 28%),
+        linear-gradient(90deg, rgba(9,22,16,.92) 0%, rgba(9,22,16,.68) 42%, rgba(9,22,16,.23) 100%),
+        linear-gradient(0deg, rgba(9,22,16,.86) 0%, transparent 38%);
+    }
+
+    .hero-content {
+      max-width: 820px;
+    }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      margin: 0 0 22px;
+      padding: 9px 13px;
+      border: 1px solid rgba(255,255,255,.28);
+      border-radius: 999px;
+      background: rgba(255,255,255,.10);
+      backdrop-filter: blur(12px);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: .13em;
+      text-transform: uppercase;
+    }
+
+    .eyebrow::before {
+      content: "";
+      width: 12px;
+      height: 18px;
+      border-radius: 3px;
+      background: var(--white);
+      display: inline-block;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: clamp(48px, 8vw, 104px);
+      line-height: .92;
+      letter-spacing: -.07em;
+      max-width: 900px;
+    }
+
+    .hero-text {
+      margin: 28px 0 0;
+      max-width: 660px;
+      font-size: clamp(19px, 2.2vw, 28px);
+      color: rgba(255,255,255,.88);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
+    }
+
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 52px;
+      padding: 0 22px;
+      border-radius: 999px;
+      font-weight: 800;
+      text-decoration: none;
+      transition: transform .2s ease, box-shadow .2s ease, background .2s ease;
+    }
+
+    .button:hover { transform: translateY(-2px); }
+    .button.primary {
+      background: var(--white);
+      color: var(--forest-2);
+      box-shadow: 0 18px 46px rgba(0,0,0,.24);
+    }
+    .button.secondary {
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,.42);
+      background: rgba(255,255,255,.08);
+      backdrop-filter: blur(12px);
+    }
+
+    .section {
+      padding: clamp(70px, 9vw, 120px) clamp(20px, 5vw, 72px);
+    }
+
+    .intro {
+      display: grid;
+      grid-template-columns: 1.05fr .95fr;
+      gap: clamp(34px, 6vw, 78px);
+      align-items: center;
+      background:
+        linear-gradient(180deg, var(--stone), #fffaf0);
+    }
+
+    .section-kicker {
+      margin: 0 0 12px;
+      color: var(--moss);
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: .15em;
+      text-transform: uppercase;
+    }
+
+    h2 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: 1;
+      letter-spacing: -.045em;
+      color: var(--forest-2);
+    }
+
+    .lead {
+      margin: 24px 0 0;
+      font-size: clamp(18px, 2vw, 22px);
+      color: #465348;
+      max-width: 760px;
+    }
+
+    .trail-card {
+      border-radius: var(--radius);
+      background: var(--white);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      border: 1px solid rgba(24, 53, 38, .1);
+    }
+
+    .trail-card img {
+      width: 100%;
+      display: block;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+    }
+
+    .caption {
+      padding: 18px 20px 20px;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    .services {
+      background: var(--forest-2);
+      color: var(--white);
+    }
+
+    .services h2 { color: var(--white); }
+    .services .lead { color: rgba(255,255,255,.72); }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+      margin-top: 42px;
+    }
+
+    .service-card {
+      min-height: 260px;
+      padding: 28px;
+      border-radius: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,.11), rgba(255,255,255,.055));
+      border: 1px solid rgba(255,255,255,.13);
+    }
+
+    .service-card .number {
+      display: inline-grid;
+      place-items: center;
+      width: 38px;
+      height: 38px;
+      margin-bottom: 32px;
+      border-radius: 50%;
+      color: var(--forest-2);
+      background: var(--trail);
+      font-weight: 900;
+    }
+
+    .service-card h3 {
+      margin: 0 0 10px;
+      font-size: 24px;
+      line-height: 1.08;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: rgba(255,255,255,.72);
+    }
+
+    .approach {
+      display: grid;
+      grid-template-columns: .72fr 1.28fr;
+      gap: clamp(34px, 6vw, 84px);
+      align-items: start;
+      background: #fffaf0;
+    }
+
+    .steps {
+      display: grid;
+      gap: 16px;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .step {
+      display: grid;
+      grid-template-columns: 54px 1fr;
+      gap: 18px;
+      align-items: start;
+      padding: 22px;
+      border-radius: 22px;
+      background: var(--white);
+      border: 1px solid rgba(24, 53, 38, .1);
+      box-shadow: 0 16px 46px rgba(24,53,38,.08);
+    }
+
+    .blaze {
+      width: 36px;
+      height: 54px;
+      border-radius: 7px;
+      background: var(--white);
+      border: 2px solid rgba(24,53,38,.15);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,.7), 0 9px 18px rgba(24,53,38,.1);
+    }
+
+    .step h3 { margin: 0 0 5px; color: var(--forest-2); }
+    .step p { margin: 0; color: var(--muted); }
+
+    .cta {
+      padding: clamp(70px, 9vw, 116px) clamp(20px, 5vw, 72px);
+      background:
+        radial-gradient(circle at 20% 20%, rgba(213,168,78,.22), transparent 28%),
+        linear-gradient(135deg, var(--forest), var(--forest-2));
+      color: var(--white);
+      text-align: center;
+    }
+
+    .cta-box {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: clamp(30px, 6vw, 70px);
+      border-radius: 34px;
+      border: 1px solid rgba(255,255,255,.17);
+      background: rgba(255,255,255,.08);
+      box-shadow: var(--shadow);
+    }
+
+    .cta h2 { color: var(--white); }
+    .cta p {
+      margin: 20px auto 0;
+      max-width: 680px;
+      color: rgba(255,255,255,.76);
+      font-size: 20px;
+    }
+
+    .site-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 26px clamp(20px, 5vw, 72px);
+      background: var(--forest-2);
+      color: rgba(255,255,255,.68);
+      border-top: 1px solid rgba(255,255,255,.1);
+      font-size: 14px;
+    }
+
+    @media (max-width: 920px) {
+      .nav { display: none; }
+      .intro, .approach { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .service-card { min-height: auto; }
+      .hero { min-height: 92vh; }
+    }
+
+    @media (max-width: 540px) {
+      .site-header { padding: 16px 20px; }
+      .brand span { font-size: 13px; }
+      .hero { padding-bottom: 44px; }
+      .hero-actions { flex-direction: column; align-items: stretch; }
+      .button { width: 100%; }
+      .step { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header" aria-label="Primary navigation">
+    <a class="brand" href="#top" aria-label="White Blaze Analytics home">
+      <span class="mark" aria-hidden="true"></span>
+      <span>White Blaze Analytics</span>
+    </a>
+    <nav class="nav" aria-label="Page sections">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#approach">Approach</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+    <section class="hero" aria-label="White Blaze Analytics hero">
+      <div class="hero-content">
+        <p class="eyebrow">IT Consulting Company</p>
+        <h1>Navigate your path less traveled.</h1>
+        <p class="hero-text">White Blaze Analytics LLC helps organizations move from technology uncertainty to clear, practical next steps across data, analytics, cloud, automation, and modern IT delivery.</p>
+        <div class="hero-actions">
+          <a class="button primary" href="mailto:whiteblazeanalytics@gmail.com?subject=Consulting%20Inquiry%20-%20White%20Blaze%20Analytics">Start a conversation</a>
+          <a class="button secondary" href="#services">Explore services</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section intro" id="about">
+      <div>
+        <p class="section-kicker">Why White Blaze</p>
+        <h2>Clear markers for complex technology decisions.</h2>
+        <p class="lead">Our name comes from the white blazes that guide hikers along the Appalachian Trail from Georgia to Maine. Those marks do not walk the trail for you. They show you where you are, keep you pointed in the right direction, and help you keep moving.</p>
+        <p class="lead">That is how we approach consulting: practical guidance, grounded execution, and technology recommendations that fit the terrain in front of you.</p>
+      </div>
+      <figure class="trail-card">
+        <img src="assets/appalachian-trail.jpg" alt="A white blaze marker on a tree along a wooded Appalachian Trail path" />
+        <figcaption class="caption">Inspired by the white trail markers that guide Appalachian Trail hikers through uncertain terrain.</figcaption>
+      </figure>
+    </section>
+
+    <section class="section services" id="services">
+      <p class="section-kicker">What we do</p>
+      <h2>IT consulting for the next mile.</h2>
+      <p class="lead">Whether you are modernizing systems, building better reporting, untangling data flows, or planning your next platform decision, White Blaze Analytics brings structure to the journey.</p>
+
+      <div class="grid">
+        <article class="service-card">
+          <span class="number">1</span>
+          <h3>Data & Analytics Strategy</h3>
+          <p>Define the right data model, reporting roadmap, KPIs, and governance approach so teams can trust the numbers and act faster.</p>
+        </article>
+        <article class="service-card">
+          <span class="number">2</span>
+          <h3>Cloud & Platform Guidance</h3>
+          <p>Assess architecture, integrations, storage, pipelines, and tooling choices with a focus on practical implementation and long-term maintainability.</p>
+        </article>
+        <article class="service-card">
+          <span class="number">3</span>
+          <h3>Automation & Process Improvement</h3>
+          <p>Identify manual work, fragile handoffs, and repeatable workflows that can be simplified with better systems, scripts, dashboards, and controls.</p>
+        </article>
+        <article class="service-card">
+          <span class="number">4</span>
+          <h3>Application & Web Consulting</h3>
+          <p>Help plan, design, and improve internal tools, client-facing sites, portals, and lightweight applications that support real business needs.</p>
+        </article>
+        <article class="service-card">
+          <span class="number">5</span>
+          <h3>Technology Roadmaps</h3>
+          <p>Turn scattered priorities into a sequenced plan that balances business value, technical debt, budget, staffing, and risk.</p>
+        </article>
+        <article class="service-card">
+          <span class="number">6</span>
+          <h3>Fractional IT Leadership</h3>
+          <p>Provide experienced guidance for teams that need senior technology perspective without adding a full-time executive role.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section approach" id="approach">
+      <div>
+        <p class="section-kicker">Our approach</p>
+        <h2>Simple, steady, and useful.</h2>
+        <p class="lead">We keep the process focused on decisions and outcomes, not jargon.</p>
+      </div>
+      <ol class="steps">
+        <li class="step">
+          <span class="blaze" aria-hidden="true"></span>
+          <div>
+            <h3>Find the trailhead</h3>
+            <p>We start by understanding your current systems, pain points, goals, and constraints.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="blaze" aria-hidden="true"></span>
+          <div>
+            <h3>Mark the route</h3>
+            <p>We translate the work into a clear roadmap with practical phases, dependencies, and tradeoffs.</p>
+          </div>
+        </li>
+        <li class="step">
+          <span class="blaze" aria-hidden="true"></span>
+          <div>
+            <h3>Move with confidence</h3>
+            <p>We help execute, advise, document, and adjust as the terrain changes.</p>
+          </div>
+        </li>
+      </ol>
+    </section>
+
+    <section class="cta" id="contact">
+      <div class="cta-box">
+        <p class="section-kicker">Start here</p>
+        <h2>Ready to make the next technology decision clearer?</h2>
+        <p>Tell us where you are trying to go. We will help you identify the next marker, the next milestone, and the right path forward.</p>
+        <div class="hero-actions" style="justify-content:center;">
+          <a class="button primary" href="mailto:whiteblazeanalytics@gmail.com?subject=Consulting%20Inquiry%20-%20White%20Blaze%20Analytics">whiteblazeanalytics@gmail.com</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <span>© <span id="year"></span> White Blaze Analytics LLC. All rights reserved.</span>
+    <span>We are here to help you navigate your path less traveled.</span>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
