@@ -4,9 +4,9 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="White Blaze Analytics is an IT consulting company helping organizations navigate data, cloud, automation, and technology strategy." />
-  <title>White Blaze Analytics LLC | Navigate the Path Less Traveled</title>
+  <title>White Blaze Analytics LLC | Navigate Your Path Less Traveled</title>
   <meta property="og:title" content="White Blaze Analytics LLC" />
-  <meta property="og:description" content="IT consulting to help you navigate the path less traveled." />
+  <meta property="og:description" content="IT consulting to help you navigate your path less traveled." />
   <meta property="og:type" content="website" />
   <meta property="og:image" content="assets/appalachian-trail.jpg" />
   <style>
@@ -309,6 +309,68 @@
       color: rgba(255,255,255,.72);
     }
 
+
+
+    .products {
+      background: linear-gradient(180deg, #fffaf0, var(--stone));
+    }
+
+    .product-feature {
+      margin-top: 42px;
+      display: grid;
+      grid-template-columns: .95fr 1.05fr;
+      gap: clamp(24px, 4vw, 54px);
+      align-items: center;
+      padding: clamp(24px, 4vw, 46px);
+      border-radius: 34px;
+      background:
+        radial-gradient(circle at 20% 20%, rgba(213,168,78,.20), transparent 28%),
+        linear-gradient(135deg, var(--forest-2), #24150c 65%, #0e2419);
+      color: var(--white);
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(255,255,255,.14);
+      overflow: hidden;
+    }
+
+    .product-feature h3 {
+      margin: 0;
+      font-size: clamp(34px, 5vw, 64px);
+      line-height: .95;
+      letter-spacing: -.045em;
+    }
+
+    .product-feature p {
+      color: rgba(255,255,255,.76);
+      font-size: 18px;
+      margin: 18px 0 0;
+    }
+
+    .product-badges {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 22px 0 0;
+    }
+
+    .product-badge {
+      padding: 8px 12px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,.20);
+      background: rgba(255,255,255,.10);
+      color: rgba(255,255,255,.88);
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    .product-screen {
+      display: block;
+      width: 100%;
+      border-radius: 22px;
+      border: 1px solid rgba(255,255,255,.18);
+      box-shadow: 0 24px 70px rgba(0,0,0,.32);
+      background: #fff;
+    }
+
     .approach {
       display: grid;
       grid-template-columns: .72fr 1.28fr;
@@ -390,7 +452,7 @@
 
     @media (max-width: 920px) {
       .nav { display: none; }
-      .intro, .approach { grid-template-columns: 1fr; }
+      .intro, .approach, .product-feature { grid-template-columns: 1fr; }
       .grid { grid-template-columns: 1fr; }
       .service-card { min-height: auto; }
       .hero { min-height: 92vh; }
@@ -415,6 +477,7 @@
     <nav class="nav" aria-label="Page sections">
       <a href="#about">About</a>
       <a href="#services">Services</a>
+      <a href="#products">Products</a>
       <a href="#approach">Approach</a>
       <a href="#contact">Contact</a>
     </nav>
@@ -424,7 +487,7 @@
     <section class="hero" aria-label="White Blaze Analytics hero">
       <div class="hero-content">
         <p class="eyebrow">IT Consulting Company</p>
-        <h1>Navigate the path less traveled.</h1>
+        <h1>Navigate your path less traveled.</h1>
         <p class="hero-text">White Blaze Analytics LLC helps organizations move from technology uncertainty to clear, practical next steps across data, analytics, cloud, automation, and modern IT delivery.</p>
         <div class="hero-actions">
           <a class="button primary" href="mailto:whiteblazeanalytics@gmail.com?subject=Consulting%20Inquiry%20-%20White%20Blaze%20Analytics">Start a conversation</a>
@@ -485,6 +548,33 @@
       </div>
     </section>
 
+
+
+    <section class="section products" id="products">
+      <p class="section-kicker">Premier Product</p>
+      <h2>Barrel-Ledger is our first product built for a path less traveled.</h2>
+      <p class="lead">White Blaze Analytics is launching Barrel-Ledger as a premium product for bourbon and whiskey influencers who want to turn years of tasting content into a searchable, branded review library.</p>
+
+      <article class="product-feature">
+        <div>
+          <p class="section-kicker" style="color:var(--gold);">Barrel-Ledger</p>
+          <h3>Your whiskey content, finally searchable.</h3>
+          <p>Stop letting great whiskey reviews disappear into the feed. Barrel-Ledger gives your followers a searchable home for every bottle, every score, every tasting note, and every review link.</p>
+          <div class="product-badges" aria-label="Barrel-Ledger highlights">
+            <span class="product-badge">YouTube Review Indexing</span>
+            <span class="product-badge">Instagram Post Entry</span>
+            <span class="product-badge">Master Whiskey Library</span>
+            <span class="product-badge">Guided Sensory Notes</span>
+          </div>
+          <div class="hero-actions">
+            <a class="button primary" href="barrel-ledger/">Explore Barrel-Ledger</a>
+            <a class="button secondary" href="mailto:whiteblazeanalytics@gmail.com?subject=Barrel-Ledger%20Demo%20Request">Email us for a demo</a>
+          </div>
+        </div>
+        <img class="product-screen" src="assets/barrel-ledger/01-inventory.png" alt="Barrel-Ledger searchable review inventory screenshot" />
+      </article>
+    </section>
+
     <section class="section approach" id="approach">
       <div>
         <p class="section-kicker">Our approach</p>
@@ -530,7 +620,7 @@
 
   <footer class="site-footer">
     <span>© <span id="year"></span> White Blaze Analytics LLC. All rights reserved.</span>
-    <span>We are here to help you navigate the path less traveled.</span>
+    <span>We are here to help you navigate your path less traveled.</span>
   </footer>
 
   <script>
